@@ -11,6 +11,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vueuse/core": "^10.11.0",
+    "nes.css": "^2.3.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.29"
   },

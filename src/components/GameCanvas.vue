@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref } from 'vue'
 import { useSnakeStore } from '@/stores/snake'
 import { useIntervalFn } from '@vueuse/core'
 import { GameState } from '@/constants'
@@ -92,6 +92,10 @@ export default {
       context.value = canvas.value.getContext('2d')
       window.addEventListener('keydown', handleKeyDown)
       drawGame()
+    })
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('keydown', handleKeyDown)
     })
 
     useIntervalFn(() => {

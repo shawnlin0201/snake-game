@@ -1,35 +1,57 @@
-# snake-game
+# Snake Game
 
-This template should help get you started developing with Vue 3 in Vite.
+## Introduction
 
-## Recommended IDE Setup
+This is a classic Snake Game built using Vite, Vue 3, Pinia, and Canvas. The game allows you to control a snake to eat food and grow in length. Avoid colliding with the walls or your own tail.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Customize configuration
+- Classic Snake Game mechanics
+- Responsive controls
+- Scoring system
+- Retro style graphics
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Demo
 
-## Project Setup
+[Live Demo](https://snake-game.zeabur.app/)
 
-```sh
-npm install
-```
+## Technologies Used
 
-### Compile and Hot-Reload for Development
+- Vite
+- Vue 3
+- Pinia
+- Canvas
+- SCSS
 
-```sh
-npm run dev
-```
+## Installation
 
-### Compile and Minify for Production
+### Prerequisites
 
-```sh
-npm run build
-```
+- Node.js (>=16.x)
 
-### Lint with [ESLint](https://eslint.org/)
+### Steps
 
-```sh
-npm run lint
-```
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/shawnlin0201/snake-game.git
+   cd snake-game
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+
+- Use the arrow keys or WASD to control the direction of the snake.
+- Eat the food to grow in length and increase your score.
+- Avoid running into walls or your own tail.

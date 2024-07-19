@@ -1,6 +1,13 @@
 <template>
   <div class="game-container">
-    <canvas ref="canvas" width="400" height="400"></canvas>
+    <div class="canvas-container">
+      <canvas
+        ref="canvas"
+        width="400"
+        height="400"
+        :class="{ shakeEffect: isShakeEffectActive }"
+      ></canvas>
+    </div>
     <div class="game-state">
       <p v-if="snakeStore.gameState === GameState.START">
         Press space keys or click button to start
@@ -20,7 +27,7 @@
 </template>
 
 <script>
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref, computed } from 'vue'
 import { useSnakeStore } from '@/stores/snake'
 import { useIntervalFn } from '@vueuse/core'
 import { GameState } from '@/constants'
@@ -31,6 +38,8 @@ export default {
     const snakeStore = useSnakeStore()
     const context = ref(null)
     let nextDirection = snakeStore.direction
+
+    const isShakeEffectActive = computed(() => snakeStore.snakeLength >= 15)
 
     const drawGame = () => {
       if (!context.value) return
@@ -109,7 +118,8 @@ export default {
       snakeStore,
       startGame,
       resetGame,
-      GameState
+      GameState,
+      isShakeEffectActive
     }
   }
 }
@@ -130,8 +140,67 @@ export default {
   font-family: 'KongText';
   text-align: center;
 }
+.canvas-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
 canvas {
   border: 4px solid #2cdf28;
   background-color: black;
+  display: block;
+}
+
+.shakeEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: shakeEffect 1s infinite;
+}
+
+@keyframes shakeEffect {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.shakeEffect::before,
+.shakeEffect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  top: 0;
+  left: 0;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.shakeEffect::before {
+  animation: shakeEffect 1s infinite;
+  clip: rect(20px, 200px, 30px, 0);
+}
+
+.shakeEffect::after {
+  animation: shakeEffect 1s infinite;
+  clip: rect(85px, 200px, 90px, 0);
 }
 </style>

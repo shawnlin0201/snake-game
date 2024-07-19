@@ -15,13 +15,19 @@ This is a classic Snake Game built using Vite, Vue 3, Pinia, and Canvas. The gam
 
 [Live Demo](https://snake-game.zeabur.app/)
 
+## Usage
+
+- Use the arrow keys or WASD to control the direction of the snake.
+- Eat the food to grow in length and increase your score.
+- Avoid running into walls or your own tail.
+
 ## Technologies Used
 
 - Vite
 - Vue 3
-- Pinia
-- Canvas
 - SCSS
+- Canvas
+- CI/CD via Zeabur platform
 
 ## Installation
 
@@ -50,8 +56,6 @@ This is a classic Snake Game built using Vite, Vue 3, Pinia, and Canvas. The gam
    npm run dev
    ```
 
-## Usage
+## Continuous Integration and Deployment with Zeabur
 
-- Use the arrow keys or WASD to control the direction of the snake.
-- Eat the food to grow in length and increase your score.
-- Avoid running into walls or your own tail.
+Any changes merged into the `main` branch will automatically trigger the deployment process.

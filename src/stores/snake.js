@@ -82,6 +82,7 @@ export const useSnakeStore = defineStore({
     },
     startGame() {
       this.gameState = GameState.PLAYING
+      this.generateFood()
     }
   }
 })
